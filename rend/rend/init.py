@@ -13,7 +13,7 @@ def standalone(hub):
     hub.pop.sub.add(dyne_name='output')
     outputter = hub.OPT['rend']['output']
     ret = hub.rend.init.parse(hub.OPT['rend']['file'], hub.OPT['rend']['pipe'])
-    getattr(hub, f'output.{outputter}.display')(ret)
+    print(getattr(hub, f'output.{outputter}.display')(ret))
 
 
 def parse(hub, fn, pipe=None):

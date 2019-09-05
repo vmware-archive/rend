@@ -6,4 +6,4 @@ def display(hub, data):
     '''
     Display the given data using python's pprint
     '''
-    pprint.pprint(data)
+    return pprint.pformat(data)
