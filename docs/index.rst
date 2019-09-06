@@ -11,6 +11,7 @@ Welcome to rend's documentation!
 
 
    topics/rend
+   releases/*
 
 
 

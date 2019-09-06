@@ -1,0 +1,22 @@
+=======================
+Initial Release of Rend
+=======================
+
+Rend is the `pop` project to provide the `pop` ecosystem with a component for
+rendering dat a files. This system is largely inspired by the `Salt` render
+system.
+
+This is just the initial baseline implementation of what should include a
+large number of components in the future.
+
+Rend
+====
+
+The `rend` subsystem is available to work with. This subsystem comes with
+support for yaml, jinja and toml with more to come in the future.
+
+Output
+======
+
+The output system comes with the capacity to format output for pretty cli
+printing. The output system comes with the `pretty` outputter.
