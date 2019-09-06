@@ -27,3 +27,10 @@ def test_toml():
     fn = os.path.join(FDIR, 'test.toml')
     ret = hub.rend.init.parse(fn, 'toml')
     assert ret == {'test': {'foo': 'bar'}}
+
+
+def test_shebang():
+    hub = prep_hub()
+    fn = os.path.join(FDIR, 'shebang.yml')
+    ret = hub.rend.init.parse(fn, 'toml')  # Pass in bad pipe so we use the one in the file
+    assert ret == {'test': {'foo': 'bar'}}
