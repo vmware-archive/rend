@@ -22,16 +22,17 @@ def parse(hub, fn, pipe=None):
     passed in then the file will be checked for a render shebang line. If
     no render shebang line is present then the system will raise an
     Exception
+    If a file defines a shebang render pipe and a pipe is passed in, the
+    shebang render pipe line will be used
     '''
     with open(fn, 'rb') as rfh:
         data = rfh.read()
-    if pipe is None:
-        if data.startswith(b'#!'):
-            dpipe = data[2:data.index(b'\n')].split(b'|')
-        else:
-            raise rend.exc.RendPipeException(f'File {fn} passed in without a render pipe defined')
-    else:
+    if data.startswith(b'#!'):
+        dpipe = data[2:data.index(b'\n')].split(b'|')
+    elif pipe:
         dpipe = pipe.split('|')
+    else:
+        raise rend.exc.RendPipeException(f'File {fn} passed in without a render pipe defined')
     for render in dpipe:
         if isinstance(render, bytes):
             render = render.decode()
