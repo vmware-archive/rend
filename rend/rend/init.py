@@ -1,10 +1,5 @@
-# Import python libs
-import logging
-
 # Import local libs
 import rend.exc
-
-log = logging.getLogger(__file__)
 
 
 def standalone(hub):
