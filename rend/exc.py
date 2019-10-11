@@ -11,3 +11,8 @@ class RendPipeException(RendBaseException):
     '''
     Exception raised when a render pipe is not define or available
     '''
+
+class RenderException(RendBaseException):
+    '''
+    Exception raised when a renderer raises a excplicit error
+    '''

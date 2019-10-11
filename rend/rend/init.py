@@ -1,7 +1,10 @@
 # Import python libs
-import pprint
+import logging
+
 # Import local libs
 import rend.exc
+
+log = logging.getLogger(__file__)
 
 
 def standalone(hub):
@@ -36,5 +39,9 @@ def parse(hub, fn, pipe=None):
     for render in dpipe:
         if isinstance(render, bytes):
             render = render.decode()
-        data = getattr(hub, f'rend.{render}.render')(data)
+        try:
+            data = getattr(hub, f'rend.{render}.render')(data)
+        except rend.exc.RenderException:
+            log.critical('Rendering exception occurred')
+            raise
     return data
