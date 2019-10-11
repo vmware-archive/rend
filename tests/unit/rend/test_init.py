@@ -36,3 +36,13 @@ def test_rend_parse_yaml_exc(prep_hub):
     with pytest.raises(rend.exc.RenderException) as exc:
         prep_hub.rend.init.parse(fn_, 'yaml')
     assert exc.value.args[0] == "Yaml render error: found undefined tag handle '!-!'"
+
+def test_rend_parse_toml_exc(prep_hub):
+    '''
+    test rend.init.parse when RendererException
+    raised with toml renderer
+    '''
+    fn_ = os.path.join(FDIR, 'test_exc.toml')
+    with pytest.raises(rend.exc.RenderException) as exc:
+        prep_hub.rend.init.parse(fn_, 'toml')
+    assert exc.value.args[0] == "Toml render error: Empty value is invalid"
