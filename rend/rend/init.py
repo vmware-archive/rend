@@ -39,9 +39,5 @@ def parse(hub, fn, pipe=None):
     for render in dpipe:
         if isinstance(render, bytes):
             render = render.decode()
-        try:
-            data = getattr(hub, f'rend.{render}.render')(data)
-        except rend.exc.RenderException:
-            log.critical('Rendering exception occurred')
-            raise
+        data = getattr(hub, f'rend.{render}.render')(data)
     return data

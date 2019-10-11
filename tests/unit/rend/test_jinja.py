@@ -27,7 +27,6 @@ def test_jinja_bytes(prep_hub):
     ret = prep_hub.rend.jinja.render(b'{% set test = "itworked" %}{{ test }}')
     assert ret == 'itworked'
 
-
 def test_jinja_undefined(prep_hub):
     '''
     test rend.jinja.render when there is an undefined error
