@@ -1,5 +1,3 @@
-# Import python libs
-import pprint
 # Import local libs
 import rend.exc
 
