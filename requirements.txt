@@ -1,4 +1,4 @@
 pop
-pyyaml
+pyyaml>=5.1
 jinja2
 toml

@@ -22,6 +22,14 @@ def test_yaml():
     assert ret == {'test': {'foo': 'bar'}}
 
 
+def test_ordered_yaml():
+    hub = prep_hub()
+    fn = os.path.join(FDIR, 'order.yml')
+    ret = hub.rend.init.parse(fn, 'yaml')
+    assert list(ret.keys()) == ['first', 'second', 'third', 'forth', 'fifth']
+    assert list(ret['first'].keys()) == [1, 2, 3, 7, 4]
+
+
 def test_toml():
     hub = prep_hub()
     fn = os.path.join(FDIR, 'test.toml')
