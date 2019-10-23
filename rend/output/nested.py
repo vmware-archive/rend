@@ -3,11 +3,9 @@
 Recursively display nested data
 ===============================
 
-This is the default outputter for most execution functions.
-
 Example output::
 
-    myminion:
+    some key:
         ----------
         foo:
             ----------
@@ -28,7 +26,7 @@ from numbers import Number
 from collections.abc import Mapping
 
 # Import third party libs
-from colored import fg, bg, attr
+from colored import fg, attr
 
 
 class NestDisplay(object):
