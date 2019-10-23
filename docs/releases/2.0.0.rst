@@ -1,0 +1,8 @@
+==========
+Rend 2.0.0
+==========
+
+The tests have been updated for better coverage. Outputters
+have been added, in particular the json and nested outputters.
+Nested is now the default outputter, it is very nice and
+colorful.
