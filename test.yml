@@ -1,3 +1,7 @@
 #!yaml
 foo:
-  bar
+  bar: 34
+baz:
+  - cheese
+  - 34
+  - seven
