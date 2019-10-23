@@ -174,7 +174,6 @@ def display(hub, ret):
     '''
     Display ret data
     '''
-    # Prefer kwargs before opts
     nest = NestDisplay()
     lines = nest.display(ret, 0, '', [])
     try:
