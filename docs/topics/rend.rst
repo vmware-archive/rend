@@ -70,6 +70,33 @@ A render pipe is defined using a shebang line at the top of the file:
 Now this jinja template will execute, call the function on the hub and use it to
 generate a dataset.
 
+File Blocks
+===========
+
+The `#!` tag used to define render pipes should be familiar to anyone who has
+written shell scripts. The `rend` system uses the `#!` to define a line that holds
+metadata and delimits a block of data to be rendered differntly, or seperately.
+The `#!` was chosen because it is otherwise reserved by virtually all scripting,
+programming, templating and serialization languages.
+
+File Blocks defined with the `#!` can contain specific render pipes, but also metadata
+that can be used by your application.
+
+.. code-block:: yaml
+
+    #!jinja|yaml;require:foo
+    bar: baz
+    #!jinja|toml
+    [foo]
+      quo
+
+Now, if the function `hub.rend.init.blocks` is used to parse this file, it will return
+the block data in a dict with blocks that can then be passed to `hub.rend.init.parse_blocks`.
+
+This allows for gathering file data early on, but then lazy parsing specific blocks within
+the file data. It also allows for metadata, stored as `keys` (the `require:foo` key/value pair)
+to be made available to the higher level application rendering the file.
+
 Output System
 =============
 
