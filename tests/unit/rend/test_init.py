@@ -62,6 +62,8 @@ def test_blocks(prep_hub):
         if block['ln'] == 3:
             assert block['keys'] == {b'require': b'red'}
             assert block['bytes'] == b'red:\n  rum: 5\n'
+        if block['ln'] == 6:
+            assert block['pipe'] == [b'toml']
         if ref != 'raw' and block['ln'] == 0:
             assert block['keys'] == {b'require': b'cheese'}
             assert block['bytes'] == b'foo:\n  bar: baz\n'

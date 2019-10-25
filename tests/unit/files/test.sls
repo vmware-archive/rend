@@ -4,3 +4,6 @@ foo:
 #!require:red
 red:
   rum: 5
+#!toml
+[frank]
+  red

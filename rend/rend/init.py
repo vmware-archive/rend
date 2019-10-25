@@ -83,14 +83,17 @@ def blocks(hub, fn):
                     bnames.append(bname)
                 parts = root.split(b';')
                 for ind, part in enumerate(parts):
-                    if b'|' in part:
-                        pipes = part.split(b'|')
-                        ret[bname]['pipe'] = pipes
                     if b':' in part:
                         req = part.split(b':')
                         if len(req) < 2:
                             continue
                         ret[bname]['keys'][req[0]] = req[1]
+                    else:
+                        if b'|' in part:
+                            pipes = part.split(b'|')
+                        else:
+                            pipes = [part]
+                        ret[bname]['pipe'] = pipes
             else:
                 ret[bname]['bytes'] += line
     return ret
