@@ -87,7 +87,7 @@ def blocks(hub, fn):
                         req = part.split(b':')
                         if len(req) < 2:
                             continue
-                        ret[bname]['keys'][req[0]] = req[1]
+                        ret[bname]['keys'][req[0].decode()] = req[1].decode()
                     else:
                         if b'|' in part:
                             pipes = part.split(b'|')
