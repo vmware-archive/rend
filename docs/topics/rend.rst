@@ -3,7 +3,7 @@ The Rend System
 ===============
 
 The `rend` system is a system used to allow the concept of renderers to be
-easily applied to `pop` projects. This  system makes it easy to app-merge
+easily applied to `pop` projects. This system makes it easy to app-merge
 `rend` into your `pop` project and gain access to the template rendering
 system and to the `output` system.
 
@@ -32,7 +32,7 @@ render.
 
     data = hub.rend.init.parse('file.yml', 'yaml')
 
-This simple example if  no different really than just using yaml directly, but
+This simple example is no different really than just using yaml directly, but
 to get the full power of `rend` you can use render pipes.
 
 Render Pipes
