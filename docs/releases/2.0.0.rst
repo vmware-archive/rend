@@ -1,6 +1,6 @@
-==========
-Rend 2.0.0
-==========
+======
+Rend 2
+======
 
 The tests have been updated for better coverage. Outputters
 have been added, in particular the json and nested outputters.

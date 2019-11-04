@@ -8,9 +8,11 @@ Welcome to rend's documentation!
 
 .. toctree::
    :maxdepth: 2
-
+   :glob:
 
    topics/rend
+   topics/subsystems
+   topics/extending
    releases/*
 
 

@@ -1,6 +1,6 @@
-=======================
-Initial Release of Rend
-=======================
+======
+Rend 1
+======
 
 Rend is the `pop` project to provide the `pop` ecosystem with a component for
 rendering dat a files. This system is largely inspired by the `Salt` render

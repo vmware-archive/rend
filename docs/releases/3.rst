@@ -1,0 +1,17 @@
+======
+Rend 3
+======
+
+Rend 3 comes with a powerful new interface called block rendering. Block
+rendering allows for files to be rendered in specific blocks, mix render pipes
+and allow the upstream application using rend to read in bulk many rend files
+and then decide how and when to render those files.
+
+This feature was created with `idem` in mind, so that formulas can be rendered
+later on, but it was not built specifically to work with `idem` of course!
+The render block system allows for render pipes to be defined in a way that
+exists outside of the specific render systems used and allows the block to
+send key value data up to the ingesting application.
+
+This new feature gives `rend` an amazing way to create dynamic data-driven
+languages!
