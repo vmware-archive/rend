@@ -44,6 +44,10 @@ def parse_bytes(hub, block, pipe=None):
     '''
     Send in a block from a render file and render it using the named pipe
     '''
+    if isinstance(pipe, str):
+        pipe = pipe.split('|')
+    if isinstance(pipe, bytes):
+        pipe = pipe.split(b'|')
     fn = block.get('fn')
     ln = block.get('ln')
     data = block.get('bytes')
