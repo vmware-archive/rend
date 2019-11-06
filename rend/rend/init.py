@@ -69,6 +69,7 @@ def blocks(hub, fn):
     bname = 'raw'
     ret = {bname: {'ln': 0, 'fn': fn, 'bytes': b''}}
     bnames = [bname]
+    rm_bnames = set()
     bind = 0
     with open(fn, 'rb') as rfh:
         for num, line in enumerate(rfh):
@@ -100,4 +101,9 @@ def blocks(hub, fn):
                         ret[bname]['pipe'] = pipes
             else:
                 ret[bname]['bytes'] += line
+    for bname, data in ret.items():
+        if not data['bytes']:
+            rm_bnames.add(bname)
+    for bname in rm_bnames:
+        ret.pop(bname)
     return ret
