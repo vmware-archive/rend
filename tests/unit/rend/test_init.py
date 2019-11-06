@@ -48,6 +48,16 @@ def test_rend_parse_toml_exc(prep_hub):
     assert exc.value.args[0] == "Toml render error: Empty value is invalid"
 
 
+def test_empty_blocks(prep_hub):
+    '''
+    Test that code blocks without any data don't get rendered
+    '''
+    fn = os.path.join(FDIR, 'empty.sls')
+    data = prep_hub.rend.init.blocks(fn)
+    for ref, block in data.items():
+        assert block['bytes']
+
+
 def test_blocks(prep_hub):
     '''
     Test that the block seperation and rendering works

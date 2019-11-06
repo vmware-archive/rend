@@ -1,0 +1,3 @@
+#!jinja|yaml
+
+foo: bar
