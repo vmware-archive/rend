@@ -19,6 +19,11 @@ SETUP_DIRNAME = os.path.dirname(__file__)
 if not SETUP_DIRNAME:
     SETUP_DIRNAME = os.getcwd()
 
+with open('README.rst', encoding='utf-8') as f:
+    LONG_DESC = f.read()
+
+with open('requirements.txt') as f:
+    REQUIREMENTS = f.read().splitlines()
 
 class Clean(Command):
     user_options = []
@@ -51,7 +56,10 @@ setup(name=NAME,
       author_email='thatch@saltstack.com',
       url='https://saltstack.com',
       version=VERSION,
+      install_requires=REQUIREMENTS,
       description=DESC,
+      long_description=LONG_DESC,
+      long_description_content_type='text/x-rst',
       classifiers=[
           'Operating System :: OS Independent',
           'Programming Language :: Python',
