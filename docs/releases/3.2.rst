@@ -1,0 +1,5 @@
+========
+Rend 3.2
+========
+
+eand 3.2 fixes an issue where all deps were not being properly installed
