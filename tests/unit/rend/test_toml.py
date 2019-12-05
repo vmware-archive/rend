@@ -13,7 +13,8 @@ import pytest
 import rend.exc
 
 
-def test_toml(prep_hub):
+@pytest.mark.asyncio
+async def test_toml(prep_hub):
     '''
     test rend.toml.render renders correctly
     '''
@@ -23,11 +24,13 @@ def test_toml(prep_hub):
     [owner]
     name = 'toml owner'
     """
-    ret = prep_hub.rend.toml.render(data)
+    ret = await prep_hub.rend.toml.render(data)
     assert ret['title'] == 'toml test'
     assert ret['owner']['name'] == 'toml owner'
 
-def test_toml_bytes(prep_hub):
+
+@pytest.mark.asyncio
+async def test_toml_bytes(prep_hub):
     '''
     test rend.toml.render renders correctly with bytes data
     '''
@@ -37,11 +40,13 @@ def test_toml_bytes(prep_hub):
     [owner]
     name = 'toml owner'
     """
-    ret = prep_hub.rend.toml.render(data)
+    ret = await prep_hub.rend.toml.render(data)
     assert ret['title'] == 'toml test'
     assert ret['owner']['name'] == 'toml owner'
 
-def test_toml_decode_error(prep_hub):
+
+@pytest.mark.asyncio
+async def test_toml_decode_error(prep_hub):
     '''
     test rend.toml.render when there is a decode error
     '''
@@ -52,5 +57,5 @@ def test_toml_decode_error(prep_hub):
     name = 'toml owner'
     """
     with pytest.raises(rend.exc.RenderException) as exc:
-        prep_hub.rend.toml.render(data)
+        await prep_hub.rend.toml.render(data)
     assert exc.value.args[0] == "Toml render error: Key group not on a line by itself."

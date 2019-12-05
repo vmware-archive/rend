@@ -8,7 +8,7 @@ import toml
 __virtualname__ = 'toml'
 
 
-def render(hub, data):
+async def render(hub, data):
     '''
     Render the given toml data
     '''

@@ -4,19 +4,26 @@ import secrets
 import rend.exc
 
 
+def __init__(hub):
+    hub.pop.sub.add(dyne_name='output')
+
+
 def standalone(hub):
     '''
     Execute the render system onto a single file, typically to test basic
     functionality
     '''
     hub.pop.conf.integrate('rend', cli='rend')
-    hub.pop.sub.add(dyne_name='output')
+    hub.pop.loop.start(_standalone(hub))
+
+
+async def _standalone(hub):
     outputter = hub.OPT['rend']['output']
-    ret = hub.rend.init.parse(hub.OPT['rend']['file'], hub.OPT['rend']['pipe'])
+    ret = await hub.rend.init.parse(hub.OPT['rend']['file'], hub.OPT['rend']['pipe'])
     print(getattr(hub, f'output.{outputter}.display')(ret))
 
 
-def parse(hub, fn, pipe=None):
+async def parse(hub, fn, pipe=None):
     '''
     Pass in the render pipe to use to render the given file. If no pipe is
     passed in then the file will be checked for a render shebang line. If
@@ -36,11 +43,11 @@ def parse(hub, fn, pipe=None):
     for render in dpipe:
         if isinstance(render, bytes):
             render = render.decode()
-        data = getattr(hub, f'rend.{render}.render')(data)
+        data = await getattr(hub, f'rend.{render}.render')(data)
     return data
 
 
-def parse_bytes(hub, block, pipe=None):
+async def parse_bytes(hub, block, pipe=None):
     '''
     Send in a block from a render file and render it using the named pipe
     '''
@@ -57,7 +64,7 @@ def parse_bytes(hub, block, pipe=None):
     for render in pipe:
         if isinstance(render, bytes):
             render = render.decode()
-        data = getattr(hub, f'rend.{render}.render')(data)
+        data = await getattr(hub, f'rend.{render}.render')(data)
     return data
 
 

@@ -7,7 +7,7 @@ import rend.exc
 __virtualname__ = 'yaml'
 
 
-def render(hub, data):
+async def render(hub, data):
     '''
     Given the data, attempt to render it as yaml
     '''
