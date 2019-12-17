@@ -55,3 +55,13 @@ async def test_yaml_constructor_exc(prep_hub):
         await prep_hub.rend.yaml.render('- !!!str just a string:one')
     assert exc.value.args[0] == "Yaml render error: could not determine "\
                                 "a constructor for the tag 'tag:yaml.org,2002:!str'"
+
+@pytest.mark.asyncio
+async def test_duplicate_keys(prep_hub):
+    data = '''foo: bar
+foo: bar
+    '''
+    with pytest.raises(rend.exc.RenderException) as exc:
+        ret = await prep_hub.rend.yaml.render(data)
+    assert exc.value.args[0] == "Yaml render error: found conflicting ID 'foo'"
+
