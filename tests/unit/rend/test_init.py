@@ -41,7 +41,7 @@ async def test_rend_parse_yaml_exc(prep_hub):
     fn_ = os.path.join(FDIR, 'test_exc.yaml')
     with pytest.raises(rend.exc.RenderException) as exc:
         await prep_hub.rend.init.parse(fn_, 'yaml')
-    assert exc.value.args[0] == "Yaml render error: found undefined tag handle '!-!'"
+    assert exc.value.args[0] == "Yaml render error: found undefined tag handle"
 
 
 @pytest.mark.asyncio
