@@ -1,0 +1,7 @@
+======
+Rend 4
+======
+
+Rend 4 changes rend in a significant way, all of the
+parsers are now async, this allows for async functions to be called from
+within the parsers.

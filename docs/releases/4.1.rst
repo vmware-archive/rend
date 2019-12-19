@@ -1,0 +1,7 @@
+========
+Rend 4.1
+========
+
+Rend 4.1 brings in the changes to rend found in the salt yaml
+renderer, now things like duplicate keys are detected and
+an error is thrown, as well as more advanced type autodetection.
