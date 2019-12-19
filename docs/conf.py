@@ -18,11 +18,11 @@
 # -- Project information -----------------------------------------------------
 
 project = 'rend'
-copyright = '2019, Thomas S Hatch'
+copyright = '2020, Thomas S Hatch'
 author = 'Thomas S Hatch'
 
 # The full version, including alpha/beta/rc tags
-release = '4'
+release = '4.1'
 
 
 # -- General configuration ---------------------------------------------------
